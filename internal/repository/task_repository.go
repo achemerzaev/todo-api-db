@@ -26,10 +26,10 @@ func NewTaskRepository(db *pgxpool.Pool) *TaskRepository {
 // DatabaseGetTasks выполняет SQL-запрос к базе данных для получения
 // todo-задач с учетом офсета и размера страницы. Возвращает список
 // задач или ошибку, если запрос не может быть выполнен
-func (r *TaskRepository) DatabaseGetTasks(response *models.PaginatedResponse, offset int) error {
+func (r *TaskRepository) DatabaseGetTasks(response *models.PaginatedResponse, offset int, userId int) error {
 	rows, err := r.db.Query(context.Background(),
-		"SELECT Id, Title, Description, CreatedBy FROM tasks LIMIT $1 OFFSET $2",
-		response.Limit, offset)
+		"SELECT Id, Title, Description, CreatedBy FROM tasks WHERE CreatedBy = $1 LIMIT $2 OFFSET $3",
+		userId, response.Limit, offset)
 	if err != nil {
 		return fmt.Errorf("Database query error: %w", err)
 	}

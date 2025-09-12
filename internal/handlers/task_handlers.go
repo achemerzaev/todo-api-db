@@ -4,7 +4,6 @@
 package handlers
 
 import (
-	"github.com/boretsotets/todo-api-db/internal/authorization"
 	"github.com/boretsotets/todo-api-db/internal/models"
 	"github.com/boretsotets/todo-api-db/internal/service"
 	"github.com/gin-gonic/gin"
@@ -41,7 +40,7 @@ func NewTaskHandler(s *service.TaskService) *TaskHandler {
 func (h *TaskHandler) HandlerGet(c *gin.Context) {
 
 	authtoken := c.GetHeader("Authorization")
-	_, err := service.ServiceAuth(authtoken)
+	userId, err := service.ServiceAuth(authtoken)
 	if err != nil {
 		c.IndentedJSON(http.StatusUnauthorized, gin.H{"message": "unauthorized"})
 		return
@@ -58,7 +57,7 @@ func (h *TaskHandler) HandlerGet(c *gin.Context) {
 		c.String(http.StatusBadRequest, "error converting limit to integer")
 		return
 	}
-	err = h.service.ServiceGet(&response)
+	err = h.service.ServiceGet(&response, userId)
 	if err != nil {
 		if strings.Contains(err.Error(), "query") {
 			c.IndentedJSON(http.StatusInternalServerError, gin.H{"message": "database query error"})

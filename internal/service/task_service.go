@@ -29,9 +29,9 @@ func NewTaskService(r *repository.TaskRepository) *TaskService {
 // считает необходимый отступ, а затем запрашивает данные у репозитория.
 // Возвращает список задач и информацию о пагинации или ошибку,
 // если запрос не может быть выполнен
-func (s *TaskService) ServiceGet(response *models.PaginatedResponse) error {
+func (s *TaskService) ServiceGet(response *models.PaginatedResponse, userId int) error {
 	offset := (response.Page - 1) * response.Limit
-	err := s.repo.DatabaseGetTasks(response, offset)
+	err := s.repo.DatabaseGetTasks(response, offset, userId)
 	if err != nil {
 		return err
 	}
