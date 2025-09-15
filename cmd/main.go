@@ -13,9 +13,6 @@ import (
 	"github.com/boretsotets/todo-api-db/internal/service"
 )
 
-// отделение аутентификации
-// передача переменных для базы данных и ключа для токена через окружение
-
 func main() {
 	// подключение к базе данных
 	ctx := context.Background()
