@@ -1,4 +1,4 @@
-module github.com/boretsotets/todo-api-db
+module github.com/achemerzaev/todo-api-db
 
 go 1.23.0
 

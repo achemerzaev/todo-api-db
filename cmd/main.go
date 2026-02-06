@@ -7,10 +7,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/boretsotets/todo-api-db/internal/database"
-	"github.com/boretsotets/todo-api-db/internal/handlers"
-	"github.com/boretsotets/todo-api-db/internal/repository"
-	"github.com/boretsotets/todo-api-db/internal/service"
+	"github.com/achemerzaev/todo-api-db/internal/database"
+	"github.com/achemerzaev/todo-api-db/internal/handlers"
+	"github.com/achemerzaev/todo-api-db/internal/repository"
+	"github.com/achemerzaev/todo-api-db/internal/service"
 )
 
 func main() {

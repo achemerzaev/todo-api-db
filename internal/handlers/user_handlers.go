@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"github.com/boretsotets/todo-api-db/internal/service"
+	"github.com/achemerzaev/todo-api-db/internal/service"
 	"github.com/gin-gonic/gin"
 
 	"encoding/json"

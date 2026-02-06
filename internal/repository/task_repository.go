@@ -4,7 +4,7 @@
 package repository
 
 import (
-	"github.com/boretsotets/todo-api-db/internal/models"
+	"github.com/achemerzaev/todo-api-db/internal/models"
 	"github.com/jackc/pgx/v5/pgxpool"
 
 	"context"
