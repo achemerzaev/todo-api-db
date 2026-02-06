@@ -4,9 +4,9 @@
 package service
 
 import (
-	"github.com/boretsotets/todo-api-db/internal/authorization"
-	"github.com/boretsotets/todo-api-db/internal/models"
-	"github.com/boretsotets/todo-api-db/internal/repository"
+	"github.com/achemerzaev/todo-api-db/internal/authorization"
+	"github.com/achemerzaev/todo-api-db/internal/models"
+	"github.com/achemerzaev/todo-api-db/internal/repository"
 
 	"fmt"
 )
